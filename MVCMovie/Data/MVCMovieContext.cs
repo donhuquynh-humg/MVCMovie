@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MVCMovie.Models;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace MVCMovie.Data
