@@ -34,15 +34,21 @@ namespace MVCMovie.Models
                         Title = "Ghostbusters ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
                         Genre = "Comedy",
-                        Price = 8.99M
+                        Price = 8.99M,
+                        Rating = "R",
+                        Email = "abc@email.com"
                     },
 
                     new Movie
+                    
                     {
+    
                         Title = "Ghostbusters 2",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
                         Genre = "Comedy",
-                        Price = 9.99M
+                        Price = 9.99M,
+                        Rating = "R1",
+                        Email ="abcd@email.com"
                     },
 
                     new Movie
@@ -50,8 +56,29 @@ namespace MVCMovie.Models
                         Title = "Rio Bravo",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Genre = "Western",
-                        Price = 3.99M
-                    }
+                        Price = 3.99M,
+                        Rating = "R2",
+                        Email = "abcde@email.com"
+                    },
+
+                    new Movie
+                    {
+                        Title = "When Harry Met Sally",
+                        ReleaseDate = DateTime.Parse("1989-1-11"),
+                        Genre = "Romantic Comedy",      
+                        Price = 7.99M,
+                        Rating = "R3",
+                        Email = "abcdef@email.com"
+                    },
+                        new Movie
+                    {
+                        Title = "When Harry Met Sally",
+                        ReleaseDate = DateTime.Parse("1989-1-11"),
+                        Genre = "Romantic Comedy",
+                        Price = 7.99M,
+                        Rating = "R4",
+                        Email = "abcdefg@email.com"
+                        }
                 );
                 context.SaveChanges();
             }

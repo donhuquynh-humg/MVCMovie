@@ -10,11 +10,23 @@ namespace MVCMovie.Models
     {
         [Key] 
     public int Id { get; set; }
+        
     public string Title { get; set; }
 
-    [DataType(DataType.Date)]
+        [Display(Name = "Release Date")]
+        [DataType(DataType.Date)]
     public DateTime ReleaseDate { get; set; }
+        [Range(1,100)]
+        [DataType(DataType.Currency)]
+       
     public string Genre { get; set; }
+
+        
     public decimal Price { get; set; }
+    public string Rating { get; set; }
+    public int Email { get; set; }
+
+    
+
     }
 }

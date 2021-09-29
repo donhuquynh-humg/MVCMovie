@@ -10,9 +10,11 @@ namespace MVCMovie.Data
 {
     public class MVCMovieContext : DbContext
     {
+
         public MVCMovieContext (DbContextOptions<MVCMovieContext> options)
             : base(options)
         {
+
         }
 
         public DbSet<Movie> Movie { get; set; }
