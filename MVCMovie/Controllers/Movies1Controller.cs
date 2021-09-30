@@ -43,7 +43,7 @@ namespace MVCMovie.Controllers
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
 
-            var movieGenreVM = new MovieGenreViewModel 
+            var movieGenreVM = new MovieGenreViewModel
             {
 
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
@@ -82,7 +82,7 @@ namespace MVCMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.MovieGenreViewModel movie)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace MVCMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.MovieGenreViewModel movie)
         {
             if (id != movie.Id)
             {

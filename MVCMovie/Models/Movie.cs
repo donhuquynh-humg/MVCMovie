@@ -24,7 +24,7 @@ namespace MVCMovie.Models
         
     public decimal Price { get; set; }
     public string Rating { get; set; }
-    public int Email { get; set; }
+    public string Email { get; set; }
 
     
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MVCMovie.Models;
 using System;
 using System.Collections.Generic;
 
@@ -10,6 +11,7 @@ namespace MvcMovie.Models
         public SelectList Genres { get; set; }
         public string MovieGenre { get; set; }
         public string SearchString { get; set; }
+        public int Id { get; set; }
 
         public static implicit operator Movie(MovieGenreViewModel v)
         {

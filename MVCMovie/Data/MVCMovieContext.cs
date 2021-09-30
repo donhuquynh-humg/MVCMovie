@@ -11,7 +11,7 @@ namespace MVCMovie.Data
     public class MVCMovieContext : DbContext
     {
 
-        public MVCMovieContext (DbContextOptions<MVCMovieContext> options)
+        public MVCMovieContext(DbContextOptions<MVCMovieContext> options)
             : base(options)
         {
 
