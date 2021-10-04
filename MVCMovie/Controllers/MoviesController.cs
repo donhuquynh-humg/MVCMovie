@@ -11,16 +11,14 @@ using MVCMovie.Models;
 
 namespace MVCMovie.Controllers
 {
-    public class Movies1Controller : Controller
+    public class MoviesController : Controller
     {
         private readonly MVCMovieContext _context;
 
-        public Movies1Controller(MVCMovieContext context)
+        public MoviesController(MVCMovieContext context)
         {
             _context = context;
         }
-
-        // GET: Movies1
 
         // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString)
@@ -45,44 +43,24 @@ namespace MVCMovie.Controllers
 
             var movieGenreVM = new MovieGenreViewModel
             {
-
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Movies = await movies.ToListAsync()
             };
 
             return View(movieGenreVM);
         }
-
-        // GET: Movies1/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
-
-            return View(movie);
-        }
-
-        // GET: Movies1/Create
+        // GET: Movies/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies1/Create
+        // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.MovieGenreViewModel movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +71,7 @@ namespace MVCMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies1/Edit/5
+        // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -109,12 +87,12 @@ namespace MVCMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies1/Edit/5
+        // POST: Movies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] MvcMovie.Models.MovieGenreViewModel movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Email")] Movie movie)
         {
             if (id != movie.Id)
             {
@@ -144,7 +122,7 @@ namespace MVCMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies1/Delete/5
+        // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -162,7 +140,7 @@ namespace MVCMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies1/Delete/5
+        // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
